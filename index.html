@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сборник мастер-классов: Заботливое образование</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dots: #eef7f9;
+            --dot-color: #bcdce5;
+            --white: #ffffff;
+            --text-main: #4a4a4a;
+            --accent-purple: #6c5ce7;
+            --accent-teal: #00cec9;
+            --deep-red: #800000;
+            --pink-grad-top: #ff8fa3;
+            --pink-grad-bottom: #ff4d6d;
+            --pink-shadow: #c9184a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: var(--bg-dots);
+            background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            color: var(--text-main);
+            padding: 40px 20px;
+        }
+
+        .main-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Заголовок страницы */
+        .page-header {
+            background: var(--white);
+            border: 3px dashed var(--accent-purple);
+            border-radius: 40px;
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .page-header h1 {
+            color: var(--deep-red);
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+
+        /* Сетка карточек */
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* Карточка мастер-класса */
+        .workshop-card {
+            background: var(--white);
+            border-radius: 50px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-teal);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .workshop-card h3 {
+            color: var(--deep-red);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .workshop-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Чтобы кнопка всегда была внизу */
+        }
+
+        /* 3D КНОПКА В КАРТОЧКЕ */
+        .btn-wrapper {
+            text-align: center;
+        }
+
+        .btn-3d {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            background: linear-gradient(to bottom, var(--pink-grad-top), var(--pink-grad-bottom));
+            box-shadow: 0 8px 0 var(--pink-shadow), 0 15px 20px rgba(201, 24, 74, 0.3);
+            position: relative;
+            transition: all 0.1s ease;
+            border: none;
+        }
+
+        /* Стеклянный блик на кнопке */
+        .btn-3d::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 10%;
+            width: 80%;
+            height: 20%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+        }
+
+        .btn-3d:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 var(--pink-shadow), 0 5px 10px rgba(201, 24, 74, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+            .workshop-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <header class="page-header">
+            <h1>Библиотека знаний 📚</h1>
+            <p>Учимся создавать миры в Scratch с радостью!</p>
+        </header>
+
+        <main class="workshop-grid">
+            
+            <article class="workshop-card">
+                <div class="card-icon">🐰</div>
+                <h3>Пасхальный кролик</h3>
+                <p>Помогаем кролику собрать пасхальные яйца. Учимся основам управления персонажем через клавиатуру.</p>
+                <div class="btn-wrapper">
+                    <a href="master-class-1/index.html" class="btn-3d">Учиться! 🚀</a>
+                </div>
+            </article>
+
+          <!--  <article class="workshop-card">
+                <div class="card-icon">🤖</div>
+                <h3>Вжик и Кот</h3>
+                <p>Интерактивная сказка про робота-пылесоса. Узнаем, как работают сенсоры и условия в Scratch.</p>
+                <div class="btn-wrapper">
+                    <a href="robot_lesson.html" class="btn-3d">Смотреть ✨</a>
+                </div>
+            </article>
+
+            <article class="workshop-card">
+                <div class="card-icon">🌊</div>
+                <h3>Тайны океана</h3>
+                <p>Создаем подводный мир с анимированными рыбками. Разбираемся с циклами и случайными числами.</p>
+                <div class="btn-wrapper">
+                    <a href="ocean_lesson.html" class="btn-3d">Начать 🐬</a>
+                </div>
+            </article>
+
+            <article class="workshop-card">
+                <div class="card-icon">⭐</div>
+                <h3>Ловец звёзд</h3>
+                <p>Аркадная игра на скорость. Учимся работать с переменными и создавать настоящий счётчик очков.</p>
+                <div class="btn-wrapper">
+                    <a href="star_catcher.html" class="btn-3d">Играть 🎯</a>
+                </div>
+            </article>
+-->
+        </main>
+
+        <footer>
+            🌱 Проект «Заботливое образование» — знания, которые вдохновляют.
+        </footer>
+    </div>
+
+</body>
+</html>
