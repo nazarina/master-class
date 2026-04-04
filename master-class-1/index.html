@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок Scratch: Пушистый помощник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #fff0f3;
+            --soft-blue: #eef7f9;
+            --dot-color: #bcdce5;
+            --accent-purple: #6c5ce7;
+            --accent-teal: #00cec9;
+            --deep-red: #800000;
+            --text-main: #4a4a4a;
+            --white: #ffffff;
+            --btn-pink: #ff4d6d;
+            --btn-pink-light: #ff8fa3;
+            --btn-shadow: #c9184a;
+             --sunny-yellow: #fff200;
+            --sky-blue: #00d2ff;
+            --bright-pink: #ff6b81;
+        
+             }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: var(--soft-blue);
+            background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--text-main);
+        }
+
+        .container {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Заголовок с пунктиром */
+        header {
+            border: 3px dashed var(--accent-purple);
+            border-radius: 40px;
+            padding: 40px;
+            text-align: center;
+            background-color: #f8f7ff;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--deep-red);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Контент */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: var(--deep-red);
+            font-size: 1.8rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 4px;
+            background-color: var(--accent-teal);
+            border-radius: 2px;
+        }
+
+        .story-card {
+            background-color: #fff9f0;
+            padding: 30px;
+            border-radius: 30px;
+            border-left: 8px solid #fab1a0;
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .emoji-large {
+            font-size: 2rem;
+        }
+
+        /* Окно плеера */
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #f0f0f0;
+            box-shadow: 0 0 10px 5px #fff9c4;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid var(--btn-pink);
+            margin-left: 5px;
+        }
+
+        /* 3D РОЗОВАЯ КНОПКА */
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            position: relative;
+            padding: 25px 50px;
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(to bottom, var(--btn-pink-light), var(--btn-pink));
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 12px 0 var(--btn-shadow), 0 20px 30px rgba(201, 24, 74, 0.4);
+            transition: all 0.1s ease;
+        }
+
+        .cta-button:active {
+            transform: translateY(8px);
+            box-shadow: 0 4px 0 var(--btn-shadow);
+        }
+
+        /* Стеклянный блик на кнопке */
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 10%;
+            right: 10%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+      
+     
+        /* Иконки внизу */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .tip-card {
+            padding: 25px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid transparent;
+        }
+
+        .tip-card.green {
+            background-color: #f0fff4;
+            border-color: #c6f6d5;
+        }
+
+        .tip-card.red {
+            background-color: #fff5f5;
+            border-color: #fed7d7;
+        }
+
+        .tip-icon {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        /* Декоративные звезды */
+        .star {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+      
+       .story-section {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 35px;
+           
+            position: relative;
+            line-height: 1.8;
+           
+        }
+
+        .story-section h2 {
+            color: var(--bright-pink);
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+       
+
+        @media (max-width: 600px) {
+            .container { padding: 30px; }
+            h1 { font-size: 2rem; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Декоративные элементы -->
+        <svg class="star" style="top: 40px; right: 40px; transform: rotate(15deg);" width="100" height="100" viewBox="0 0 24 24" fill="var(--accent-purple)"><path d="M12 1.74l3.09 6.3 6.91.95-5 4.87 1.18 6.88-6.18-3.25-6.18 3.25 1.18-6.88-5-4.87 6.91-.95z"/></svg>
+        <svg class="star" style="bottom: 40px; left: 40px; transform: rotate(-15deg);" width="80" height="80" viewBox="0 0 24 24" fill="var(--accent-teal)"><path d="M12 1.74l3.09 6.3 6.91.95-5 4.87 1.18 6.88-6.18-3.25-6.18 3.25 1.18-6.88-5-4.87 6.91-.95z"/></svg>
+
+        <header>
+            <h1>Пасхальный переполох 🐰</h1>
+            <div class="subtitle">Помогаем кролику собрать пасхальные яйца 🥚</div>
+        </header>
+
+        <section class="story-section">
+            
+                <h2>🌸 Весеннее приключение начинается!</h2>
+         
+            <p style="line-height: 1.6; font-size: 1.1rem; margin-bottom: 20px;">
+               
+Представь: яркое утреннее солнце заглянуло в окошко лесного домика. Наш герой, любопытный Кролик, обнаружил, что Весенний Ветерок случайно разбросал все праздничные подарки!
+
+Яйца спрятались повсюду: за кустами, в высокой траве и даже под облаками. Без твоей помощи Кролику не справиться.
+            </p>
+            
+            <div class="story-card">
+                <span class="emoji-large">🐰</span>
+                <div>
+                    <strong style="display: block; font-size: 1.2rem; margin-bottom: 5px;">Твоя задача на сегодня:</strong>
+         оживить Кролика в программе Scratch, научить его бегать по сочной траве и собирать пасхальные яйца!
+                </div>
+            </div>
+        </section>
+
+        <div class="video-placeholder">
+            <div class="play-button">
+                <div class="play-icon"></div>
+            </div>
+            <p style="position: absolute; bottom: 20px; color: #999;">Нажми, чтобы посмотреть проект</p>
+        </div>
+
+        <div class="button-wrapper">
+            <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="cta-button">
+                <span>🐰</span>
+                Перейти в Scratch
+            </a>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tip-card green">
+                <span class="tip-icon">🏃</span>
+                <div>
+                    <strong style="color: #2f855a; display: block;">Движение</strong>
+                    Используй блоки «идти 10 шагов», чтобы кролик ожил.
+                </div>
+            </div>
+            <div class="tip-card red">
+                <span class="tip-icon">🥕</span>
+                <div>
+                    <strong style="color: #c53030; display: block;">Угощение</strong>
+                    Когда кролик касается морковки, она должна спрятаться!
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
