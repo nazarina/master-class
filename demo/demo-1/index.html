@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок Scratch: Пушистый помощник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #fff0f3;
+            --soft-blue: #eef7f9;
+            --dot-color: #bcdce5;
+            --accent-purple: #6c5ce7;
+            --accent-teal: #00cec9;
+            --deep-red: #800000;
+            --text-main: #4a4a4a;
+            --white: #ffffff;
+            --btn-pink: #ff4d6d;
+            --btn-pink-light: #ff8fa3;
+            --btn-shadow: #c9184a;
+             --sunny-yellow: #fff200;
+            --sky-blue: #00d2ff;
+            --bright-pink: #ff6b81;
+        
+             }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: var(--soft-blue);
+            background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--text-main);
+        }
+
+        .container {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Заголовок с пунктиром */
+        header {
+            border: 3px dashed var(--accent-purple);
+            border-radius: 40px;
+            padding: 40px;
+            text-align: center;
+            background-color: #f8f7ff;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--deep-red);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+      
+
+        .emoji-large {
+            font-size: 2rem;
+        }
+
+       
+
+       
+
+        @media (max-width: 600px) {
+            .container { padding: 30px; }
+            h1 { font-size: 2rem; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Декоративные элементы -->
+        <svg class="star" style="top: 40px; right: 40px; transform: rotate(15deg);" width="100" height="100" viewBox="0 0 24 24" fill="var(--accent-purple)"><path d="M12 1.74l3.09 6.3 6.91.95-5 4.87 1.18 6.88-6.18-3.25-6.18 3.25 1.18-6.88-5-4.87 6.91-.95z"/></svg>
+        <svg class="star" style="bottom: 40px; left: 40px; transform: rotate(-15deg);" width="80" height="80" viewBox="0 0 24 24" fill="var(--accent-teal)"><path d="M12 1.74l3.09 6.3 6.91.95-5 4.87 1.18 6.88-6.18-3.25-6.18 3.25 1.18-6.88-5-4.87 6.91-.95z"/></svg>
+
+        <header>
+            <h1>Пасхальный переполох 🐰</h1>
+            <div class="subtitle">Помогаем кролику собрать пасхальные яйца 🥚</div>
+        </header>
+
+      
+
+        <div style="text-align:center; margin-bottom:40px">
+          
+               <iframe src="https://scratch.mit.edu/projects/1299222602/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+         
+        </div>
+
+    </div>
+
+</body>
+</html>
